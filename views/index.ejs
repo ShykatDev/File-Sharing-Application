@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>doShare | Home</title>
+    <link rel="stylesheet" href="/styles/homepage.css" />
+  </head>
+  <body>
+    <% if (locals.fileLink != null) { %>
+    <div class="uploaded">
+      ✅ Your file is upload:  
+      <a class="link" href="<%= locals.fileLink %>"><%= locals.fileLink %></a>
+    </div>
+    <% } %>
+    <div class="app">
+      <img src="/background.png" alt="" />
+      <div class="overlay"></div>
+      <div class="form-box">
+        <div class="logo">
+          <h1>do<span>Share</span></h1>
+        </div>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+          <label for="file">Choose File:</label>
+          <input type="file" id="file" name="file" required />
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" />
+          <button type="submit">Share</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
